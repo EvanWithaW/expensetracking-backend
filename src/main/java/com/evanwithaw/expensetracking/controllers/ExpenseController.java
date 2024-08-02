@@ -17,12 +17,6 @@ public class ExpenseController {
     @Autowired
     private ExpenseService expenseService;
 
-    @GetMapping("/")
-    public void index(Model model){
-        List<Expense> expenses = expenseService.getAllExpenses();
-        model.addAttribute("expensetest1", expenses);
-    }
-
     @PostMapping("/addExpense")
     @ResponseBody
     public ResponseEntity<String> addExpense(@RequestBody Expense expense){
