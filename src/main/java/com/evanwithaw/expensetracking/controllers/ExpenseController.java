@@ -28,6 +28,7 @@ public class ExpenseController {
     public ResponseEntity<String> addExpense(@RequestBody Expense expense){
         expense.setAddedDate(java.time.LocalDate.now());
         expenseService.saveExpense(expense);
+        // TODO: remove this later on, just return code
         return ResponseEntity.ok("Expense added successfully");
     }
 
@@ -39,9 +40,9 @@ public class ExpenseController {
 
 
     @GetMapping("/deleteExpense/{id}")
-    public String deleteExpense(@PathVariable Long id){
+    public void deleteExpense(@PathVariable Long id){
         expenseService.deleteExpense(id);
-        return "redirect:/";
+        // TODO: explore how best to deleteExpenses
     }
 
 }
