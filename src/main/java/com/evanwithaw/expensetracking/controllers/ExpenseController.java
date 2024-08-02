@@ -18,10 +18,9 @@ public class ExpenseController {
     private ExpenseService expenseService;
 
     @GetMapping("/")
-    public String index(Model model){
+    public void index(Model model){
         List<Expense> expenses = expenseService.getAllExpenses();
         model.addAttribute("expensetest1", expenses);
-        return "index";
     }
 
     @PostMapping("/addExpense")
