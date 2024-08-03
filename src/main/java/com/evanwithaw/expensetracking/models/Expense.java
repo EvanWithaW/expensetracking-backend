@@ -1,18 +1,15 @@
 package com.evanwithaw.expensetracking.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import org.springframework.data.annotation.Id;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Entity
 public class Expense {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String expenseId;
     private String description;
     private BigDecimal amount;
     private LocalDate addedDate;
@@ -27,12 +24,12 @@ public class Expense {
         this.addedDate = addedDate;
     }
 
-    public Long getId() {
-        return id;
+    public String getId() {
+        return expenseId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(String id) {
+        this.expenseId = id;
     }
 
     public String getDescription() {
