@@ -30,6 +30,9 @@ public class AuthService {
 
     public User signup(RegisterUserDto input){
         User user = new User();
+        if(userRepository.existsByEmail(input.getEmail())){
+            return null;
+        }
 
         user.setEmail(input.getEmail());
         user.setFirstName(input.getFirstName());

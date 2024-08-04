@@ -10,4 +10,6 @@ public interface UserRepository extends MongoRepository<User, Integer> {
     public List<User> findAll();
     public void deleteById(Integer id);
     public User findByEmail(String email);
+
+    boolean existsByEmail(String email);
 }

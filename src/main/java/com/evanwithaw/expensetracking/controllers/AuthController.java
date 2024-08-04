@@ -8,11 +8,10 @@ import com.evanwithaw.expensetracking.services.JwtService;
 import com.evanwithaw.expensetracking.utils.LoginResp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RequestMapping("auth")
 @RestController
@@ -28,8 +27,11 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<User> register(@RequestBody RegisterUserDto input){
+    public ResponseEntity<Object> register(@RequestBody RegisterUserDto input) throws Exception{
         User user = authService.signup(input);
+        if(user == null){
+            return new ResponseEntity<>("User already exists", HttpStatus.BAD_REQUEST);
+        }
 
         return ResponseEntity.ok(user);
     }
