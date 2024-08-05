@@ -1,5 +1,7 @@
 # This is a WIP brand-new repository for my work on a student expense tracking application.
 
+## This works with the expensetracking-frontend repository. 
+
 ## The goal of this project is to:
 
 - Create a standalone Spring application which can create, edit, remove, and show expenses.
