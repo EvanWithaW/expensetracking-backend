@@ -4,6 +4,7 @@ import com.evanwithaw.expensetracking.models.Expense;
 import com.evanwithaw.expensetracking.services.ExpenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class ExpenseController {
     public ResponseEntity<String> addExpense(@RequestBody Expense expense){
         expense.setAddedDate(java.time.LocalDate.now());
         expenseService.saveExpense(expense);
-        // TODO: remove this later on, just return code
+
         return ResponseEntity.ok("Expense added successfully");
     }
 
