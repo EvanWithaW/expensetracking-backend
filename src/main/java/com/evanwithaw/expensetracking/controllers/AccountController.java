@@ -1,7 +1,9 @@
 package com.evanwithaw.expensetracking.controllers;
 
+import com.evanwithaw.expensetracking.dtos.UserInfoDto;
 import com.evanwithaw.expensetracking.services.AccountService;
 import com.evanwithaw.expensetracking.services.JwtService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +22,8 @@ public class AccountController {
     }
 
     @GetMapping("/info")
-    public String getUserInfo(@RequestHeader("Authorization") String authorizationHeader){
+    public ResponseEntity<Object> getUserInfo(@RequestHeader("Authorization") String authorizationHeader){
         String token = jwtService.extractTokenFromHeader(authorizationHeader);
-        return accountService.getName(token);
+        return ResponseEntity.ok(new UserInfoDto(accountService.getName(token)));
     }
 }
