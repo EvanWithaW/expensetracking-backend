@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -21,8 +22,19 @@ public class User implements UserDetails {
 
     private String password;
 
+    private List<String> tokens = new ArrayList<>();
+
     @CreatedDate
     private Date createdAt;
+
+    public List<String> getTokens() {
+        return tokens;
+    }
+
+    public void setTokens(List<String> tokens) {
+        this.tokens = tokens;
+    }
+
 
     public User() {
         this.createdAt = new Date();
