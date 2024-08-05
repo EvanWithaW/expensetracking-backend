@@ -1,3 +1,5 @@
+// src/main/java/com/evanwithaw/expensetracking/configs/JwtAuthFilter.java
+
 package com.evanwithaw.expensetracking.configs;
 
 import com.evanwithaw.expensetracking.services.JwtService;
@@ -38,7 +40,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         final String authHeader = request.getHeader("Authorization");
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            filterChain.doFilter(request, response);
             return;
         }
 
