@@ -10,6 +10,7 @@ public class Expense {
 
     @Id
     private String expenseId;
+    private String userId;
     private String description;
     private BigDecimal amount;
     private LocalDate addedDate;
@@ -54,5 +55,21 @@ public class Expense {
 
     public void setFrequency(String frequency) {
         this.frequency = frequency;
+    }
+
+    public String getExpenseId() {
+        return expenseId;
+    }
+
+    public void setExpenseId(String expenseId) {
+        this.expenseId = expenseId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

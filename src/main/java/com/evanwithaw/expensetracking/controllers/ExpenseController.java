@@ -22,6 +22,7 @@ public class ExpenseController {
     @ResponseBody
     public ResponseEntity<String> addExpense(@RequestBody Expense expense){
         expense.setAddedDate(java.time.LocalDate.now());
+
         expenseService.saveExpense(expense);
 
         return ResponseEntity.ok("Expense added successfully");
@@ -30,6 +31,7 @@ public class ExpenseController {
     @GetMapping("/getExpenses")
     @ResponseBody
     public List<Expense> getExpenses(){
+
         return expenseService.getAllExpenses();
     }
 

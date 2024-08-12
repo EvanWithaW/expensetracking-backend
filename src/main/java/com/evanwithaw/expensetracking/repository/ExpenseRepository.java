@@ -11,4 +11,6 @@ public interface ExpenseRepository extends MongoRepository<Expense, Long> {
     public List<Expense> findAll();
     public Expense save(Expense expense);
     public void deleteById(Long id);
+
+    List<Expense> findAllByUserId(String userId);
 }
