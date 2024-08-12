@@ -89,7 +89,7 @@ security.jwt.expiration-time={YOUR CHOICE OF JWT EXPIRATION TIME}
             - The current information returned includes:
                 - First and Last Name of User
 
-##Planned Features
+## Planned Features
 
 - Expenses:
   - Users will be able to edit/delete existing expenses
